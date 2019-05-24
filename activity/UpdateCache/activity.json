@@ -1,0 +1,32 @@
+{
+  "name": "PostToCache",
+  "version": "0.1.0",
+  "title": "SL Post to cache",
+  "type": "flogo:activity",
+  "description": "Posting data to a cache",
+  "ref": "github.com/ewilliams/test-clone4/flogo/activity/runshellscript",
+  "author": "Everett Williams",
+  "inputs":[
+    {
+      "name": "Target",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "Definition",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "Data",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string"
+    }
+  ]
+}
