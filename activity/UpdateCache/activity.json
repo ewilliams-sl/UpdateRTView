@@ -4,7 +4,7 @@
   "title": "SL Post to cache",
   "type": "flogo:activity",
   "description": "Posting data to a cache",
-  "ref": "github.com/ewilliams/test-clone4/flogo/activity/runshellscript",
+  "ref": "github.com/ewilliams/UpdateCache/flogo/activity/UpdateCache",
   "author": "Everett Williams",
   "inputs":[
     {
