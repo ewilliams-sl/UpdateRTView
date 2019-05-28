@@ -5,8 +5,6 @@ import (
 	"encoding/json"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
-	"os"
-	"os/exec"
 	"strings"
 	"time"
 	"net/http"
