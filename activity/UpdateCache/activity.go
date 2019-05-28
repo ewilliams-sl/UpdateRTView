@@ -121,7 +121,7 @@ func callPost() {
 //	test("http://localhost:5000/rtview/json/data/TbeObjectTable")
 //	test("http://localhost:8085/rtview/json/data/TbeObjectTable")
 
-//	post.postRowData("http://localhost:5000/rtview/write/cache/TbeObjectTable")
+//	post.postRowData("http://10.0.0.20:5000/rtview/write/cache/TbeObjectTable")
 	post.postRowData("http://localhost:8085/rtview/write/cache/TbeSlop")
 	fmt.Println(string(bolD))	
 }
@@ -188,6 +188,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	rslt := string(cmdOut)
 	// Set the result as part of the context
 	context.SetOutput(result, rslt)
+	callPost()
 
 	// Signal to the Flogo engine that the activity is completed
 	return true, nil
