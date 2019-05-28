@@ -13,7 +13,6 @@ import (
 	"fmt"
 	"bytes"
 	"io/ioutil"
-	
 )
 
 // Constants
@@ -83,6 +82,48 @@ func (rowData *slPost) postRowData(url string) error {
 	body, err := ioutil.ReadAll(resp.Body)
     fmt.Println("response:\n", string(body))
 	return nil
+}
+
+
+func callPost() {
+	var post slPost
+	post.addCol("time_stamp", "date")
+	post.addCol("connection", "string")
+	post.addCol("objectExtIdTableSize", "int")
+	post.addCol("objectTableSize", "int")
+	post.addCol("expired", "boolean")
+	
+	t2 := makeTimestamp()
+	
+
+	var d map[string]interface{}
+	d = make(map[string]interface{})
+	d["time_stamp"] = t2
+	d["connection"] = "new51Cache"
+	d["objectExtIdTableSize"] = 10000
+	d["objectTableSize"] = 1000
+	d["expired"] = false
+	var d3 map[string]interface{}
+	d3 = make(map[string]interface{})
+	d3["time_stamp"] = t2
+	d3["connection"] = "newbe4cache"
+	d3["objectExtIdTableSize"] = 20000
+	d3["objectTableSize"] = 2000
+	d3["expired"] = false
+
+	var d2 []map[string]interface{}
+	d2 = make([]map[string]interface{}, 2,6)
+	d2[0] = d
+	d2[1] = d3
+	
+	post.Data = d2
+	bolD, _ := json.Marshal(post)
+//	test("http://localhost:5000/rtview/json/data/TbeObjectTable")
+//	test("http://localhost:8085/rtview/json/data/TbeObjectTable")
+
+//	post.postRowData("http://localhost:5000/rtview/write/cache/TbeObjectTable")
+	post.postRowData("http://localhost:8085/rtview/write/cache/TbeSlop")
+	fmt.Println(string(bolD))	
 }
 
 // NewActivity creates a new activity
