@@ -9,7 +9,9 @@ import (
 	"os/exec"
 	"strings"
 	"time"
-
+	"net/http"
+	"fmt"
+	"bytes"
 )
 
 // Constants
@@ -62,6 +64,23 @@ func  (m *slPost) addCol (n string, t string) {
 	}
 	m.Metadata[iLast] = colDef
 	m.cols += 1
+}
+
+// Post info contained in row data to rtview via the url
+func (rowData *slPost) postRowData(url string) error {
+  json, _ := json.Marshal(rowData)
+  
+  fmt.Println("Sending: ", url)
+  fmt.Println("Post:\n", string(json))
+  
+  resp, err := http.Post(url, "plain/text", bytes.NewBuffer(json))
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+    fmt.Println("response:\n", string(body))
+	return nil
 }
 
 // NewActivity creates a new activity
