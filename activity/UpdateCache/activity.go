@@ -85,7 +85,7 @@ func (rowData *slPost) postRowData(url string) error {
 }
 
 
-func callPost() {
+func (a *MyActivity) callPost() {
 	var post slPost
 	post.addCol("time_stamp", "date")
 	post.addCol("connection", "string")
@@ -188,7 +188,6 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	rslt := string(cmdOut)
 	// Set the result as part of the context
 	context.SetOutput(result, rslt)
-	callPost()
 
 	// Signal to the Flogo engine that the activity is completed
 	return true, nil
