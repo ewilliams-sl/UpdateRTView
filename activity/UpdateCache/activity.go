@@ -187,7 +187,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 //	rslt := string(cmdOut)
 	// Set the result as part of the context
 //	context.SetOutput(result, rslt)
-    a.callPost()
+    &a.callPost()
 
 	// Signal to the Flogo engine that the activity is completed
 	return true, nil
