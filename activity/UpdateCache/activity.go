@@ -157,11 +157,11 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 //	_, err = os.Stat(cmd)
 
 //	if err != nil {
-//		// If the file doesn't exist return error
+	// If the file doesn't exist return error
 //		context.SetOutput("result", err.Error())
 //		log.Infof("File [%s] does not exist", cmd)
 //		return true, err
-	}
+//	}
 
 	// Get the Commands Params
 //	var paramsArray [20]string                    // FIX THIS: make dynamic but ordered
