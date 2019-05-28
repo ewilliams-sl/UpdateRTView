@@ -154,40 +154,41 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		return true, err
 	}
 	// We should have the command to execture - check its there
-	_, err = os.Stat(cmd)
-	if err != nil {
-		// If the file doesn't exist return error
-		context.SetOutput("result", err.Error())
-		log.Infof("File [%s] does not exist", cmd)
-		return true, err
+//	_, err = os.Stat(cmd)
+
+//	if err != nil {
+//		// If the file doesn't exist return error
+//		context.SetOutput("result", err.Error())
+//		log.Infof("File [%s] does not exist", cmd)
+//		return true, err
 	}
 
 	// Get the Commands Params
-	var paramsArray [20]string                    // FIX THIS: make dynamic but ordered
-	cmdParams, ok := ivCmdParams[params].(string) // this is a string containg space separated parameters
-	if ok == false {
+//	var paramsArray [20]string                    // FIX THIS: make dynamic but ordered
+//	cmdParams, ok := ivCmdParams[params].(string) // this is a string containg space separated parameters
+//	if ok == false {
 		// no params
-		log.Infof("No params provided")
-	} else {
+//		log.Infof("No params provided")
+//	} else {
 		// Put into array for exec.Command to use, space separated
 		// put command arguments into an array in the order they are entered.  Order is important.
-		i := 0
-		for _, field := range split(cmdParams, ' ') {
-			paramsArray[i] = field
-			i++
-		}
-	}
+//		i := 0
+//		for _, field := range split(cmdParams, ' ') {
+//			paramsArray[i] = field
+//			i++
+//		}
+//	}
 
 	// launch the command
-	var cmdOut []byte
-	if cmdOut, err = exec.Command(cmd, paramsArray[0:]...).Output(); err != nil {
-		log.Infof("Error running Flogo setQoS activity: [%s]", err)
-		context.SetOutput(result, err.Error())
-		return true, err
-	}
-	rslt := string(cmdOut)
+//	var cmdOut []byte
+//	if cmdOut, err = exec.Command(cmd, paramsArray[0:]...).Output(); err != nil {
+//		log.Infof("Error running Flogo setQoS activity: [%s]", err)
+//		context.SetOutput(result, err.Error())
+//		return true, err
+//	}
+//	rslt := string(cmdOut)
 	// Set the result as part of the context
-	context.SetOutput(result, rslt)
+//	context.SetOutput(result, rslt)
 
 	// Signal to the Flogo engine that the activity is completed
 	return true, nil
