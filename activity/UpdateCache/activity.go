@@ -8,6 +8,8 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+	"time"
+
 )
 
 // Constants
@@ -37,11 +39,19 @@ type slMetadata struct {
 	Metadata []slColDef `json:"metadata"`
 }
 
-
 type slColDef struct {
 	Name string `json:"name"`
 	Type string `json:"type"`
 }
+
+func (d slColDef) string() string {
+	return "\"name\":\"" + d.Name + "\",\"type:\""+d.Type
+}
+
+func makeTimestamp() int64 {
+    return time.Now().UnixNano() / int64(time.Millisecond)
+}
+
 
 // NewActivity creates a new activity
 func NewActivity(metadata *activity.Metadata) activity.Activity {
