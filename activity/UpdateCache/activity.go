@@ -1,3 +1,4 @@
+
 package UpdateCache
 
 import (
@@ -24,6 +25,21 @@ var log = logger.GetLogger("activity-setQoS")
 // MyActivity is a stub for your Activity implementation
 type MyActivity struct {
 	metadata *activity.Metadata
+}
+
+type slPost struct {
+	Metadata []slColDef `json:"metadata"`
+	Data []map[string]interface{} `json:"data"`
+	cols int
+}
+
+type slMetadata struct {
+	Metadata []slColDef `json:"metadata"`
+}
+
+type slColDef struct {
+	Name string `json:"name"`
+	Type string `json:"type"`
 }
 
 // NewActivity creates a new activity
