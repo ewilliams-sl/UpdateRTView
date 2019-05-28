@@ -52,6 +52,17 @@ func makeTimestamp() int64 {
     return time.Now().UnixNano() / int64(time.Millisecond)
 }
 
+func  (m *slPost) addCol (n string, t string) {
+	var colDef slColDef
+	colDef.Name = n
+	colDef.Type = t
+	iLast := m.cols;
+	if (cap(m.Metadata) == 0) {
+		m.Metadata = make([]slColDef, 5, 100)
+	}
+	m.Metadata[iLast] = colDef
+	m.cols += 1
+}
 
 // NewActivity creates a new activity
 func NewActivity(metadata *activity.Metadata) activity.Activity {
