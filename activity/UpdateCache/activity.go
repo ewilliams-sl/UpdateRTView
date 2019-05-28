@@ -144,13 +144,13 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	json.Unmarshal([]byte(ivMsg), &ivCmdParams)
 
 	// get the command to execute including path
-//	cmd, ok := ivCmdParams[command].(string) // this should be the command or script to execute
-//	if ok == false {
+	cmd, ok := ivCmdParams[command].(string) // this should be the command or script to execute
+	if ok == false {
 		// no Command to execute
-//		log.Infof("No Command to execute - check input syntax: [%s]", err)
-//		context.SetOutput(result, err.Error())
-//		return true, err
-//	}
+		log.Infof("No Command to execute - check input syntax: [%s]", err)
+		context.SetOutput(result, err.Error())
+		return true, err
+	}
 	// We should have the command to execture - check its there
 //	_, err = os.Stat(cmd)
 
@@ -187,6 +187,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 //	rslt := string(cmdOut)
 	// Set the result as part of the context
 //	context.SetOutput(result, rslt)
+    a.callPost()
 
 	// Signal to the Flogo engine that the activity is completed
 	return true, nil
