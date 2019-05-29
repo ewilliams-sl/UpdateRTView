@@ -145,6 +145,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	// get the command to execute including path
 	cmd, ok := ivCmdParams[command].(string) // this should be the command or script to execute
+	fmt.Println(cmd);
 	if ok == false {
 		// no Command to execute
 		log.Infof("No Command to execute - check input syntax: [%s]", err)
