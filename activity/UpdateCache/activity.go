@@ -83,7 +83,7 @@ func (rowData *slPost) postRowData(url string) error {
 }
 
 
-func (a *MyActivity) callPost() {
+func (a *MyActivity) callPost(sURL string) {
 	var post slPost
 	post.addCol("time_stamp", "date")
 	post.addCol("connection", "string")
@@ -119,7 +119,8 @@ func (a *MyActivity) callPost() {
 //	test("http://localhost:5000/rtview/json/data/TbeObjectTable")
 //	test("http://localhost:8085/rtview/json/data/TbeObjectTable")
 
-	post.postRowData("http://10.0.0.20:5000/rtview/write/cache/TbeObjectTable")
+//	post.postRowData("http://10.0.0.20:5000/rtview/write/cache/TbeObjectTable")
+	post.postRowData(sURL)
 //	post.postRowData("http://localhost:8085/rtview/write/cache/TbeSlop")
 	fmt.Println(string(bolD))	
 }
@@ -145,6 +146,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	fmt.Println(sTableDef)
 	sData := context.GetInput(tblData).(string)
 	fmt.Println(sData)
+    a.callPost(sTarget)
 
 	// get the command to execute including path
 //	cmd, ok := ivCmdParams[command].(string) // this should be the command or script to execute
@@ -191,7 +193,6 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 //	rslt := string(cmdOut)
 	// Set the result as part of the context
 //	context.SetOutput(result, rslt)
-    a.callPost()
 
 	// Signal to the Flogo engine that the activity is completed
 	return true, nil
