@@ -139,9 +139,12 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	//ivMsg := `{"cmd":"./test.sh","params":"aaa bbb ccc}`
 	// put input varable into a slice (note not order guarenteed)
-//	ivMsg := context.GetInput("Target").(string)
-//	var ivCmdParams map[string]interface{}
-//	json.Unmarshal([]byte(ivMsg), &ivCmdParams)
+	sTarget := context.GetInput(command).(string)
+	fmt.Println(sTarget)
+	sTableDef := context.GetInput(tblDef).(string)
+	fmt.Println(sTableDef)
+	sData := context.GetInput(tblData).(string)
+	fmt.Println(sData)
 
 	// get the command to execute including path
 //	cmd, ok := ivCmdParams[command].(string) // this should be the command or script to execute
