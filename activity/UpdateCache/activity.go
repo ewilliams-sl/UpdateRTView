@@ -125,6 +125,37 @@ func (a *MyActivity) callPost(sURL string) {
 	fmt.Println(string(bolD))	
 }
 
+func (a *MyActivity) updatePerformance(sURL string, sFlowName string, iMillis int) {
+	var post slPost
+	post.addCol("time_stamp", "date")
+	post.addCol("flowName", "string")
+	post.addCol("duration", "int")
+	post.addCol("expired", "boolean")
+	
+	t2 := makeTimestamp()
+	
+
+	var d map[string]interface{}
+	d = make(map[string]interface{})
+	d["time_stamp"] = t2
+	d["flowName"] = sFlowName
+	d["duration"] = iMillis
+	d["expired"] = false
+
+	var d2 []map[string]interface{}
+	d2 = make([]map[string]interface{}, 1,1)
+	d2[0] = d
+	
+	post.Data = d2
+	bolD, _ := json.Marshal(post)
+
+	post.postRowData(sURL)
+	fmt.Println(string(bolD))	
+}
+
+
+
+
 // NewActivity creates a new activity
 func NewActivity(metadata *activity.Metadata) activity.Activity {
 	return &MyActivity{metadata: metadata}
@@ -146,7 +177,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	fmt.Println(sTableDef)
 	sData := context.GetInput(tblData).(string)
 	fmt.Println(sData)
-    a.callPost(sTarget)
+    a.callPost(sTarget, "myActivity", 100)
 
 	// get the command to execute including path
 //	cmd, ok := ivCmdParams[command].(string) // this should be the command or script to execute
