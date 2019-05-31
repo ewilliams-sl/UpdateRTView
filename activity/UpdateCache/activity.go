@@ -177,7 +177,10 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	fmt.Println(sTableDef)
 	sData := context.GetInput(tblData).(string)
 	fmt.Println(sData)
-    a.updatePerformance(sTarget, "myActivity", 100)
+	sName := context.ActivityHost().Name()
+		
+    a.updatePerformance(sTarget, sName, 100)
+
 
 	// get the command to execute including path
 //	cmd, ok := ivCmdParams[command].(string) // this should be the command or script to execute
