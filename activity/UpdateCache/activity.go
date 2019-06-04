@@ -131,7 +131,6 @@ func (a *MyActivity) updatePerformance(sURL string, sFlowName string, iMillis in
 	post.addCol("time_stamp", "date")
 	post.addCol("flowName", "string")
 	post.addCol("duration", "int")
-	post.addCol("expired", "boolean")
 	
 	t2 := makeTimestamp()
 	
@@ -141,7 +140,6 @@ func (a *MyActivity) updatePerformance(sURL string, sFlowName string, iMillis in
 	d["time_stamp"] = t2
 	d["flowName"] = sFlowName
 	d["duration"] = iMillis
-	d["expired"] = false
 
 	var d2 []map[string]interface{}
 	d2 = make([]map[string]interface{}, 1,1)
