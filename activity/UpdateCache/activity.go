@@ -11,7 +11,6 @@ import (
 	"fmt"
 	"bytes"
 	"io/ioutil"
-	"strconv"
 )
 
 // Constants
