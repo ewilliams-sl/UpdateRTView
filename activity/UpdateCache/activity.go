@@ -176,7 +176,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	fmt.Println(sTarget)
 	sTableDef := context.GetInput(tblDef).(string)
 	fmt.Println(sTableDef)
-	sData := context.GetInput(tblData).(string)
+//	sData := context.GetInput(tblData).(string)
 
 	fmt.Println(sTableDef)
 	iVal := context.GetInput(spStartTime).(int64)
@@ -184,6 +184,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	iEndVal := makeTimestamp()
 	
     a.updatePerformance(sTarget, sName, iVal)
+    a.updatePerformance(sTarget, sName, iEndVal)
 
 
 	// get the command to execute including path
