@@ -18,6 +18,7 @@ const (
 	command = "Target"
 	tblDef = "Definition"
 	tblData = "Data"
+	spStartTime = "StartTime"
 	params  = "params"
 	result  = "result"
 )
@@ -176,10 +177,13 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	sTableDef := context.GetInput(tblDef).(string)
 	fmt.Println(sTableDef)
 	sData := context.GetInput(tblData).(string)
-	fmt.Println(sData)
+
+	fmt.Println(sTableDef)
+	iVal := context.GetInput(spStartTime).(string)
 	sName := context.ActivityHost().Name()
-		
-    a.updatePerformance(sTarget, sName, 100)
+	iEndVal := makeTimestamp()
+	
+    a.updatePerformance(sTarget, sName, iVal)
 
 
 	// get the command to execute including path
