@@ -181,9 +181,9 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	fmt.Println(sTableDef)
 	iVal := context.GetInput(spStartTime).(int64)
 	sName := context.ActivityHost().Name()
-	iEndVal := makeTimestamp()
+	iEndVal := makeTimestamp() -iVal
 	
-    a.updatePerformance(sTarget, sName, iVal)
+//    a.updatePerformance(sTarget, sName, iVal)
     a.updatePerformance(sTarget, sName, iEndVal)
 
 
