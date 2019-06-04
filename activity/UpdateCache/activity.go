@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"bytes"
 	"io/ioutil"
+	"strconv"
 )
 
 // Constants
@@ -179,11 +180,11 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	sData := context.GetInput(tblData).(string)
 
 	fmt.Println(sTableDef)
-	iVal := context.GetInput(spStartTime).(string)
+	iVal := context.GetInput(spStartTime).(int64)
 	sName := context.ActivityHost().Name()
 	iEndVal := makeTimestamp()
 	
-    a.updatePerformance(sTarget, sName, int64(iVal))
+    a.updatePerformance(sTarget, sName, iVal)
 
 
 	// get the command to execute including path
