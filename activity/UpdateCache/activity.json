@@ -19,7 +19,7 @@
     },
     {
       "name": "Duration",
-      "type": "int64",
+      "type": "any",
       "required": true
     }
   ],
