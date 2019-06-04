@@ -125,7 +125,7 @@ func (a *MyActivity) callPost(sURL string) {
 	fmt.Println(string(bolD))	
 }
 
-func (a *MyActivity) updatePerformance(sURL string, sFlowName string, iMillis int) {
+func (a *MyActivity) updatePerformance(sURL string, sFlowName string, iMillis int64) {
 	var post slPost
 	post.addCol("time_stamp", "date")
 	post.addCol("flowName", "string")

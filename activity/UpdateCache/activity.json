@@ -18,8 +18,8 @@
       "required": true
     },
     {
-      "name": "Data",
-      "type": "string",
+      "name": "Duration",
+      "type": "int64",
       "required": true
     }
   ],
