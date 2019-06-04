@@ -183,7 +183,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	sName := context.ActivityHost().Name()
 	iEndVal := makeTimestamp()
 	
-    a.updatePerformance(sTarget, sName, iVal)
+    a.updatePerformance(sTarget, sName, int64(iVal))
 
 
 	// get the command to execute including path
