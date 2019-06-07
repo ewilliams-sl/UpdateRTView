@@ -137,10 +137,6 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	sTarget := context.GetInput(command).(string)
 	fmt.Println(sTarget)
 	
-	sTableDef := context.GetInput(tblDef).(string)
-	fmt.Println(sTableDef)
-
-	fmt.Println(sTableDef)
 	iVal := context.GetInput(spStartTime).(int64)
 	sName := context.ActivityHost().Name()
 	iEndVal := makeTimestamp() -iVal
