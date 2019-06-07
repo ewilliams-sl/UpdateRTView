@@ -93,7 +93,7 @@ func (a *MyActivity) updatePerformance(sURL string,  sFlowName string, iMillis i
 	post.addCol("flowName", "string")
 	post.addCol("duration", "int")
 	
-	t2 := makeTimestamp()
+//	t2 := makeTimestamp()
 	
 	sHostName, err := os.Hostname()
 	if err != nil {
