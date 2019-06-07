@@ -1,19 +1,14 @@
 {
   "name": "PostToCache",
   "version": "0.1.0",
-  "title": "SL Post to cache",
+  "title": "Post to RTVcache",
   "type": "flogo:activity",
-  "description": "Posting data to a cache",
+  "description": "Posting data to the RTVcache",
   "ref": "github.com/ewilliams-sl/UpdateRTView/activity/UpdateCache",
   "author": "Everett Williams",
   "inputs":[
     {
       "name": "Target",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "Definition",
       "type": "string",
       "required": true
     },
