@@ -88,7 +88,7 @@ func (rowData *slPost) postRowData(url string) error {
 
 func (a *MyActivity) updatePerformance(sURL string,  sFlowName string, iMillis int64) {
 	var post slPost
-	post.addCol("time_stamp", "date")
+//	post.addCol("time_stamp", "date")
 	post.addCol("hostName", "string")
 	post.addCol("flowName", "string")
 	post.addCol("duration", "int")
@@ -102,7 +102,7 @@ func (a *MyActivity) updatePerformance(sURL string,  sFlowName string, iMillis i
 	
 	var d map[string]interface{}
 	d = make(map[string]interface{})
-	d["time_stamp"] = t2
+//	d["time_stamp"] = t2
 	d["hostName"] = sHostName
 	d["flowName"] = sFlowName
 	d["duration"] = iMillis
