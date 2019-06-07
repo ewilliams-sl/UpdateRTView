@@ -4,7 +4,7 @@
   "title": "SL Post to cache",
   "type": "flogo:activity",
   "description": "Posting data to a cache",
-  "ref": "github.com/ewilliams/UpdateCache/flogo/activity/UpdateCache",
+  "ref": "github.com/ewilliams-sl/UpdateCache/flogo/activity/UpdateCache",
   "author": "Everett Williams",
   "inputs":[
     {
